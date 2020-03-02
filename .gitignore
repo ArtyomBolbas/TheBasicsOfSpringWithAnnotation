@@ -1,0 +1,37 @@
+*.iml
+.idea/
+*.class
+
+# Mobile Tools for Java (J2ME)
+.mtj.tmp/
+
+# Package Files #
+*.jar
+*.war
+*.ear
+
+# virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
+hs_err_pid*
+
+# Maven 
+target/
+
+#
+# Project specific excludes
+#
+
+#
+#.gitignore
+#
+
+tomcat
+# eclipse project file
+.settings/
+.classpath
+.project
+.metadata
+.project
+bin/
+
+# eclipse project experimental classes
+myAnch.fxml
