@@ -1,4 +1,4 @@
-package com.yet.spring.service;
+package com.yet.spring.service.logger;
 
 import com.yet.spring.model.Event;
 

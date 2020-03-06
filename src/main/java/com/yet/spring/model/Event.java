@@ -1,41 +1,44 @@
 package com.yet.spring.model;
 
 import java.text.DateFormat;
-import java.util.Date;
-import java.util.Random;
 
+
+import java.util.Date;
+import java.util.concurrent.atomic.AtomicInteger;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.context.annotation.Scope;
+import org.springframework.stereotype.Component;
+
+@Component
+@Scope("prototype")
 public class Event {
+	
+	private static final AtomicInteger AUTO_ID = new AtomicInteger(0);
 	
 	private int id;
 	private String message;
-	private Date date;
-	private DateFormat df;
-
-	private Random generator = new Random();
 	
-	public Event() {}
+	@Autowired
+	@Qualifier("newDate")
+	private Date date;
+	
+	@Autowired
+	private DateFormat df;
+	
+	public Event() {
+		this.id = AUTO_ID.getAndIncrement();
+	}
 	
 	public Event(Date date) {
 		this.date = date;
 	}
 	
 	public Event(Date date, DateFormat df) {
-		super();
-		this.id = generator.nextInt();
+		this();
 		this.date = date;
 		this.df = df;
-	}
-	
-	public static boolean hasEventType(EventType eventType) {
-		return eventType != null;
-	}
-	
-	public static boolean isEventTypeInfo(EventType eventType) {
-		return hasEventType(eventType) && eventType.equals(EventType.INFO);
-	}
-	
-	public static boolean isEventTypeError(EventType eventType) {
-		return hasEventType(eventType) && eventType.equals(EventType.ERROR);
 	}
 	
 	public void setId(int id) {

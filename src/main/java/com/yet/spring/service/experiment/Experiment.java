@@ -1,11 +1,12 @@
 package com.yet.spring.service.experiment;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
+
+import org.springframework.stereotype.Service;
 
 import com.yet.spring.model.Client;
 
-@Component
+@Service
 public class Experiment {
 
 	@Autowired
