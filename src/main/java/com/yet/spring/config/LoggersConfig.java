@@ -13,6 +13,9 @@ public class LoggersConfig {
 	@Resource(name = "consoleEventLogger")
 	private EventLogger consoleEventLogger;
 	
+	@Resource(name = "fileEventLogger")
+	private EventLogger fileEventLogger;
+	
 	@Bean
 	public EventLogger defaultLogger() {
 		return consoleEventLogger;

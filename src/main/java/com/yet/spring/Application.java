@@ -21,12 +21,17 @@ public class Application {
 	@Resource(name = "defaultLogger")
 	private EventLogger defaultLogger;
 	
+	@Resource(name = "fileEventLogger")
+	private EventLogger fileEventLogger;
+	
+	private static String EVENT_MESSAGE = "Some event for %d"; 
+	
 	public Application() {}
 	
-	public Application(Client client, EventLogger defaultLogger) {
+	public Application(Client client, EventLogger fileEventLogger) {
 		super();
 		this.client = client;
-		this.defaultLogger = defaultLogger;
+		this.fileEventLogger = fileEventLogger;
 	}
 	
 	public static void main(String[] args) {		
@@ -41,7 +46,16 @@ public class Application {
 		System.out.println(app.client.getGreeting());
 		
 		Event event = ctx.getBean(Event.class);
-		app.logEvent(event, "Some event for 1");
+		app.logEvent(event, String.format(EVENT_MESSAGE, 1));
+		
+		event = ctx.getBean(Event.class);
+		app.logEvent(event, String.format(EVENT_MESSAGE, 1));
+		
+		event = ctx.getBean(Event.class);
+		app.logEvent(event, String.format(EVENT_MESSAGE, 1));
+		
+		event = ctx.getBean(Event.class);
+		app.logEvent(event, String.format(EVENT_MESSAGE, 1));
 		
 		ctx.close();
 	}
@@ -50,7 +64,7 @@ public class Application {
 		String message = msg.replaceAll(client.getId(), client.getFullName());
 		event.setMessage(message);
 		
-		defaultLogger.logEvent(event);
+		fileEventLogger.logEvent(event);
 	}
 
 	
