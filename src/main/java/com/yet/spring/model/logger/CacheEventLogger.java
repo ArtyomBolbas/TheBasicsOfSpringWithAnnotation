@@ -1,4 +1,4 @@
-package com.yet.spring.service.logger;
+package com.yet.spring.model.logger;
 
 import java.util.ArrayList;
 import java.util.List;

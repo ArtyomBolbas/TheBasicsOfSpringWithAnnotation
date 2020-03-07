@@ -12,7 +12,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 import com.yet.spring.model.Event.EventType;
-import com.yet.spring.service.logger.EventLogger;
+import com.yet.spring.model.logger.EventLogger;
 
 import static com.yet.spring.model.Event.EventType.ERROR;
 import static com.yet.spring.model.Event.EventType.INFO;
@@ -48,9 +48,9 @@ public class LoggersConfig {
 		return loggers;
 	}
 	
-	@Bean
+	/*@Bean
 	public EventLogger defaultLogger() {
 		return cacheEventLogger;
-	}
+	}*/
 	
 }

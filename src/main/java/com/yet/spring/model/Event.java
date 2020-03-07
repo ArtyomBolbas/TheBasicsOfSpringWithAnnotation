@@ -1,8 +1,7 @@
 package com.yet.spring.model;
 
 import java.text.DateFormat;
-
-
+import java.time.LocalTime;
 import java.util.Date;
 import java.util.concurrent.atomic.AtomicInteger;
 
@@ -39,6 +38,11 @@ public class Event {
 		this();
 		this.date = date;
 		this.df = df;
+	}
+	
+	public static boolean isEvenMinutes() {
+		LocalTime time = LocalTime.now();
+		return time.getMinute() % 2 == 0 ? true : false;
 	}
 	
 	public void setId(int id) {
