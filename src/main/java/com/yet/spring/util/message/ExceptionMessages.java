@@ -1,4 +1,4 @@
-package com.yet.spring.util;
+package com.yet.spring.util.message;
 
 public class ExceptionMessages {
 

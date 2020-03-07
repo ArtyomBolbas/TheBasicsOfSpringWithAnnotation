@@ -1,9 +1,15 @@
 package com.yet.spring;
 
+import static com.yet.spring.model.Event.EventType.ERROR;
+import static com.yet.spring.model.Event.EventType.INFO;
+import static com.yet.spring.util.message.EventMessages.EVENT_MESSAGE;
+import static java.lang.String.format;
+
+import java.util.Map;
+
 import javax.annotation.Resource;
 
 import org.springframework.beans.factory.annotation.Autowired;
-
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.stereotype.Component;
 
@@ -11,14 +17,6 @@ import com.yet.spring.model.Client;
 import com.yet.spring.model.Event;
 import com.yet.spring.model.Event.EventType;
 import com.yet.spring.service.logger.EventLogger;
-
-import static com.yet.spring.model.Event.EventType.ERROR;
-import static com.yet.spring.model.Event.EventType.INFO;
-import static com.yet.spring.util.EventMessages.EVENT_MESSAGE;
-
-import static java.lang.String.format;
-
-import java.util.Map;
 
 
 @Component
@@ -44,7 +42,7 @@ public class Application {
 	
 	public static void main(String[] args) {		
 		AnnotationConfigApplicationContext ctx = new AnnotationConfigApplicationContext();
-		//ctx.register(AppConfig.class, LoggerConfig.class);
+		//ctx.register(AppConfig.class, LoggersConfig.class);
 		ctx.scan("com.yet.spring*");
 		ctx.refresh();
 		

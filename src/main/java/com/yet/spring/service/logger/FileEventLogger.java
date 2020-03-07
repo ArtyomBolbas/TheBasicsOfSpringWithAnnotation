@@ -11,7 +11,7 @@ import org.springframework.stereotype.Component;
 
 import com.yet.spring.model.Event;
 
-import static com.yet.spring.util.ExceptionMessages.CANNOT_WRITE_TO_FILE;
+import static com.yet.spring.util.message.ExceptionMessages.CANNOT_WRITE_TO_FILE;
 import static java.lang.String.format;
 
 @Component
