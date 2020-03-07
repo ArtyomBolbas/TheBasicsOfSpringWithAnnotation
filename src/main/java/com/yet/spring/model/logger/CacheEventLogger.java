@@ -52,4 +52,10 @@ public class CacheEventLogger extends FileEventLogger{
 		cache.stream().forEach(super::logEvent);
 	}
 	
+	@Value("#{fileEventLogger.name + ' with cache'}")
+	@Override
+	public void setName(String name) {
+		this.name = name;
+	}
+	
 }

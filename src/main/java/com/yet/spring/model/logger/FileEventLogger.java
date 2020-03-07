@@ -15,7 +15,7 @@ import static com.yet.spring.util.message.ExceptionMessages.CANNOT_WRITE_TO_FILE
 import static java.lang.String.format;
 
 @Component
-public class FileEventLogger implements EventLogger {
+public class FileEventLogger extends AbstractLogger {
 
 	private File file;
 
@@ -45,6 +45,12 @@ public class FileEventLogger implements EventLogger {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
+	}
+	
+	@Value("File logger")
+	@Override
+	public void setName(String name) {
+		this.name = name;
 	}
 
 }

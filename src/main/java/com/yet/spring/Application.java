@@ -41,7 +41,7 @@ public class Application {
 	@Value("#{'Hello user \"' + "
 			+ "(systemProperties['os.name'].contains('Windows') ? "
 			+ "systemEnvironment['USERNAME'] : systemEnviroment['USER']) + "
-			+ "'\". Default logger is'}")
+			+ "'\". Default logger is \"' + application.defaultLogger.name + '\"'}")
 	private String startUpMessage;
 
 	@Resource(name = "loggerMap")
@@ -97,4 +97,7 @@ public class Application {
 		logger.logEvent(event);
 	}
 
+	public EventLogger getDefaultLogger() {
+		return defaultLogger;
+	}
 }
